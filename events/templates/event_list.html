@@ -1,6 +1,9 @@
 <h1>Event List!</h1>
 <ul>
     {% for event in events %}
-        <li><strong>{{ event.title }}</strong> - {{ event.location }} - {{ event.date }} - {{ event.time }}<li>
+        <li>
+            <strong>{{ event.title }}</strong> - {{ event.location }} - {{ event.date }} - {{ event.time }}
+            <a href="{% url 'registration' event.id %}">Register</a>
+        </li>
     {% endfor %}
 </ul>

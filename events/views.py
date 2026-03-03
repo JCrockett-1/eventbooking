@@ -8,7 +8,7 @@ from .models import Registration
 
 def event_list(request):
     events = Event.objects.all()
-    return render(request, 'home', {'events': events})
+    return render(request, 'event_list.html', {'events': events})
 
 def register_for_event(request, event_id):
     event = Event.objects.get(id=event_id)
@@ -20,5 +20,8 @@ def register_for_event(request, event_id):
     
 def confirm_details(request, registration_id):
     registration = Registration.objects.get(id=registration_id)
-    return render(request, 'confirmation_page.html', {'registration': registration})
+    if request.method == "POST":
+        return redirect('home')
+    else:
+        return render(request, 'confirmation_page.html', {'registration': registration})
 

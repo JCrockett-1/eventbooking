@@ -1,0 +1,6 @@
+<h1>Confirmation Page</h1>
+<p1>You have registered for {{ registration.event.title }}, {{ registration.event.date }} {{ registration.event.time }} at {{ registration.event.location }}!</p1>
+<form method="POST">
+    {% csrf_token %}
+    <button type='submit'>Return to List</button>
+</form>
