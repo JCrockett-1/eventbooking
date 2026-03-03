@@ -1,10 +1,7 @@
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.shortcuts import redirect
 from .models import Event
 from .models import Registration
-
-@login_required
 
 def event_list(request):
     events = Event.objects.all()
@@ -13,7 +10,9 @@ def event_list(request):
 def register_for_event(request, event_id):
     event = Event.objects.get(id=event_id)
     if request.method == "POST":
-        registration = Registration.objects.create(user = request.user, event=event)
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        registration = Registration.objects.create(name=name, email=email, event=event)
         return redirect('confirmation', registration_id=registration.id)
     else:
         return render(request, 'registration_page.html', {'event': event})
