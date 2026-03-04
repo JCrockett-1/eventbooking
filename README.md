@@ -11,7 +11,7 @@ then open a browser and go to
 `http://127.0.0.1:8000/`
 This will load the events list home page.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://www.youtube.com/watch?v=-3roCThTi9A)
 
 # Web Pages
 
